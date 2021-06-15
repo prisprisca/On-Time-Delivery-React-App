@@ -99,3 +99,17 @@
   margin-top: 5px;
   font-size: 0.8rem;
 }
+
+@media screen and (max-width: 600px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .lower_footer > p{
+    font-size: 0.6rem;
+  }
+  .links{
+    text-align: justify;
+  }
+}

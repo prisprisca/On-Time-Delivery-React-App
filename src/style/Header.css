@@ -1,5 +1,6 @@
 .header {
     background-color: #aa3e3e;
+    box-shadow: 10px 5px 10px rgb(168, 167, 167);
     display: flex;
     align-items: center;
     position: sticky;
