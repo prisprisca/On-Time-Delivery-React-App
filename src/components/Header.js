@@ -11,14 +11,14 @@ function Header() {
       <div className="head">
         <ul className="header-links">
           <li className="header-list">
-            <Link to="about" className="header-link">
-              <span>About</span>
+            <Link to="/" className="header-link">
+              <span>Home</span>
             </Link>
           </li>
 
           <li className="header-list">
-            <Link to="services" className="header-link">
-              <span>Services</span>
+            <Link to="about" className="header-link">
+              <span>About</span>
             </Link>
           </li>
 
