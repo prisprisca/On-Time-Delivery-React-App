@@ -1,0 +1,51 @@
+.quoter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    max-width:700px ;
+}
+
+.quoter > h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    font-weight: normal;
+}
+.quoter >p{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #45454d;
+}
+
+.quote-object{
+    display: flex;
+}
+
+.quote-object > span{
+    height: 20px;
+    width: 20px;
+    margin: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.quote-object > span:before{
+    content: "";
+    height: 6px;
+    width: 6px;
+    background-color: #d4d4d4;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  
+}
+
+.quote-object > span:hover:before{
+    background-color: #45454d;
+}
+
+.quote-object > span[data-quote="${active}"]:before{
+    background-color: #45454d;
+}
+
