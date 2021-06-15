@@ -9,6 +9,12 @@
     height: 60px;
   }
 
+  .header > p{
+    font-size: 2rem;
+    color: white;
+    margin: auto;
+  }
+
   .header.active{
     background-color:  rgb(206, 190, 190);
     /* color: white; */
