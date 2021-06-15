@@ -1,0 +1,101 @@
+.foot {
+  background-color: rgb(5, 5, 14);
+  position: relative;
+  /* height: 170px; */
+}
+.footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.footer_contact {
+  line-height: 30px;
+}
+
+.foot_contact > span {
+  font-size: 1.4rem;
+  color: #7e1616;
+  line-height: 35px;
+}
+
+.links{
+ color: white;
+ font-size: 0.8rem;
+ text-align: center;
+ font-family: 'Times New Roman', Times, serif;
+  
+}
+
+.foot_contact > p {
+  font-size: 12px;
+}
+
+.footer_info {
+  line-height: 20px;
+}
+
+.footer_info > h1 {
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.footer_info > h1 > span {
+  color: #7e1616;
+}
+
+.footer_para {
+  margin-top: 1rem;
+  font-size: 12px;
+}
+
+.news_events {
+  line-height: 40px;
+}
+
+.news_events > span {
+  font-size: 1.4rem;
+  color: #7e1616;
+}
+
+.news_events > p {
+  font-size: 12px;
+}
+
+.footer_icon {
+  margin-top: 15px;
+  /* margin-left: 30rem; */
+}
+
+.face {
+  margin-right: 1rem;
+  color: #7e1616;
+}
+
+.twit {
+  margin-right: 1rem;
+  color: #7e1616;
+}
+
+.inst {
+  color: #7e1616;
+}
+
+.lower_footer {
+  color: white;
+  text-align: center;
+  background: rgb(33, 33, 34);
+  height: 30px;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.lower_footer > p {
+  margin-top: 5px;
+  font-size: 0.8rem;
+}

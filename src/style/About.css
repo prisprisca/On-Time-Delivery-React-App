@@ -1,0 +1,44 @@
+.about{
+    display: flex;
+    border-radius: 5px;
+    width: 90%;
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+    padding: 30px;
+    box-shadow: 10px 5px 10px lightgray;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #eeeeee;
+}
+
+
+.container > h1{
+    text-align: center;
+    font-weight: normal;
+    margin-top: 2rem;
+    font-size: x-large;
+    font-family: "Times New Roman", Times, serif;
+   
+}
+
+.about-text{
+    margin-top: 3.5rem;
+}
+
+.about-text > p{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 2rem;
+}
+
+.about-text > button{
+    margin: auto;
+    
+}
+
+@media screen and (max-width: 600px) {
+    .about {
+      display: flex;
+      flex-direction: column;
+    }
+  }

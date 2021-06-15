@@ -1,0 +1,57 @@
+ .home{
+    position: relative;
+   
+    
+    
+} 
+
+.home > img{
+    position: relative;
+    border-bottom: 1px solid rgb(129, 9, 9);
+    
+}
+
+.text{
+    position: absolute;
+    bottom: 6rem;
+    color: black;
+    padding-left: 60px;
+    text-align: center;
+    margin: auto;
+    
+  }
+
+  .text > span{
+      font-size: 2.5rem;
+      font-weight: bolder;
+      opacity: 0.7;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .text > p{
+      font-size: 1.4rem;
+      line-height: 2rem;
+      opacity: 0.5;
+      line-height: 2rem;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+
+  button{
+      font-size: 1rem;
+      padding: 0.8rem;
+      margin: 1rem;
+      border-radius: 8px;
+      background: #7e1616 ;
+      color: white;
+      border: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .home > img {
+      height: 400px;
+    }
+
+    .text{
+        padding-left: 20px;
+    }
+  }
