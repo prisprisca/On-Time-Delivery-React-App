@@ -6,7 +6,7 @@ import {createOrder} from '../../actions/orders'
 import useStyles from "./styles";
 
 const Form = () => {
-  const [orderData, setOrderData] = useState({creator: '', title: '', message: '', tags: '', })
+  const [orderData, setOrderData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: '', })
   const classes = useStyles();
   const dispatch = useDispatch();
 
