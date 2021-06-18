@@ -11,10 +11,13 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import ThumbUpIcon from '@material-ui/icons/ThumbUpAlt';
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
+import {useDispatch} from 'react-redux';
 import useStyles from "./styles";
+import {deleteOrder, likeOrder} from '../../../actions/orders';
 
-const Order = ({ order }) => {
+const Order = ({ order, setCurrentId }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -32,7 +35,7 @@ const Order = ({ order }) => {
         <Button
           style={{ color: "white" }}
           size="small"
-          onClick={() => {}}
+          onClick={() => setCurrentId(order._id)}
         ><MoreHorizIcon fontSize="default" /></Button>
        
       </div>
@@ -41,19 +44,20 @@ const Order = ({ order }) => {
           {order.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
+      <Typography className={classes.title} variant="h5" gutterBottom>{order.title}</Typography>
       <CardContent>
-        <Typography className={classes.title} variant="h5" gutterBottom>
+        <Typography  variant="body2" color="textSecondary" component="p" >
           {order.message}
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-          <Button size="small" color="primary" onClick={() => {}}>
+          <Button size="small" color="primary" onClick={() => dispatch(likeOrder(order._id))}>
               <ThumbUpIcon fontSize="small" />
-                  Like
+              &nbsp; Like &nbsp;
                   {order.likeCount}
 
           </Button>
-          <Button size="small" color="primary" onClick={() => {}}>
+          <Button size="small" color="primary" onClick={() => dispatch(deleteOrder(order._id))}>
               <DeleteIcon fontSize="small" />
                   Delete
                   

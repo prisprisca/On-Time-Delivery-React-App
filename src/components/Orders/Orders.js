@@ -4,7 +4,7 @@ import Order from './Order/Order';
 import useStyles from './styles';
 import { CircularProgress, Grid } from '@material-ui/core';
 
-const Orders = () => {
+const Orders = ({setCurrentId}) => {
     const orders = useSelector((state)=> state.orders)
     const classes = useStyles();
     
@@ -13,7 +13,7 @@ const Orders = () => {
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
             {orders.map((order) => (
                 <Grid key={order._id} item xs={12} sm={6}>
-                    <Order order={order} />
+                    <Order order={order} setCurrentId={setCurrentId} />
                 </Grid>
             ))}
                 

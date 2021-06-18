@@ -1,24 +1,39 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from 'react-file-base64';
-import {useDispatch} from 'react-redux';
-import {createOrder} from '../../actions/orders'
+import {useDispatch, useSelector} from 'react-redux';
+import {createOrder, updateOrder} from '../../actions/orders';
+
 import useStyles from "./styles";
 
 //get the current id
 
 
-const Form = () => {
-  const [orderData, setOrderData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: '', })
+const Form = ({currentId, setCurrentId}) => {
+  const [orderData, setOrderData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: '' })
+  const order = useSelector((state) => currentId ? state.orders.find((order) => order._id === currentId) : null);
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if(order) setOrderData(order);
+
+  }, [order])
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createOrder(orderData))
+    if(currentId){
+      dispatch(updateOrder(currentId, orderData));
+    } else {
+      dispatch(createOrder(orderData));
+      
+    }
+   
   };
 
-  const clear =() => {
+  const clear = () => {
+    // setCurrentId(null);
+    // setOrderData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
 
   }
   return (
@@ -29,7 +44,7 @@ const Form = () => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">Make Your Order</Typography>
+        <Typography variant="h6">{currentId ? 'Edit' : 'Make'} Your Order</Typography>
         <TextField
           name="creator"
           variant="outlined"
@@ -41,7 +56,7 @@ const Form = () => {
         <TextField
           name="title"
           variant="outlined"
-          label="Title"
+          label="Pacel weight ie, small, medium, large"
           fullWidth
           value={orderData.title}
           onChange={(e) => setOrderData({ ...orderData, title: e.target.value})}
@@ -57,7 +72,7 @@ const Form = () => {
         <TextField
           name="tags"
           variant="outlined"
-          label="Tags"
+          label="Current Location"
           fullWidth
           value={orderData.tags}
           onChange={(e) => setOrderData({ ...orderData, tags: e.target.value})}

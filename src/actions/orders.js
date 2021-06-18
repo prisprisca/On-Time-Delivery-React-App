@@ -22,3 +22,31 @@ export const createOrder = (order) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const updateOrder = (id, order) => async (dispatch) => {
+    try {
+        const { data} = await api.updateOrder(id, order);
+        dispatch({ type: 'UPDATE', payload: data})
+    } catch ( error) {
+        console.log(error);
+    }
+}
+
+export const deleteOrder = (id) => async (dispatch) => {
+    try {
+        await api.deleteOrder(id);
+        dispatch({ type: 'DELETE', payload: id});
+    } catch ( error) {
+        console.log(error);
+    }
+}
+
+export const likeOrder = (id) => async (dispatch) => {
+    try {
+        const { data} = await api.likeOrder(id);
+        dispatch({ type: 'UPDATE', payload: data})
+    } catch (error) {
+        console.log(error);
+    }
+}
+
