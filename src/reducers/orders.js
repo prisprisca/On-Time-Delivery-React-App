@@ -1,4 +1,4 @@
-export default (orders = [], action) => {
+const fn = (orders = [], action) => {
   switch (action.type) {
     case "DELETE":
       return orders.filter((order) => order._id !== action.payload);
@@ -18,3 +18,4 @@ export default (orders = [], action) => {
       return orders;
   }
 };
+export default fn;
