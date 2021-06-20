@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import "../style/Header.css";
 import Form from "./Form/Form";
+import { getOrders } from "../actions/orders";
 import Orders from "./Orders/Orders";
-import useStyles from '../styles'
-import Footer from './Footer'
-
+import useStyles from "../styles";
+import Footer from "./Footer";
+import { useDispatch } from "react-redux";
 
 function OrderForm() {
+  const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getOrders());
+  }, [ dispatch]);
   return (
     <>
       <div className="header">
@@ -18,22 +25,24 @@ function OrderForm() {
       <Container maxWidth="lg">
         <AppBar className={classes.appBar} position="static" color="inherit">
           <Typography className={classes.heading} variant="h5" align="center">
-           Make Your Order Now
+            Make Your Order Now
           </Typography>
         </AppBar>
         <Grow in>
           <Container>
             <Grid
+            className={classes.mainContainer}
               container
+             
               justify="space-between"
               alignItems="stretch"
               spacing="3"
             >
               <Grid item xs={12} sm={7}>
-                <Orders />
+                <Orders setCurrentId={setCurrentId} />
               </Grid>
               <Grid item xs={12} sm={4}>
-                <Form />
+                <Form currentId={currentId} />
               </Grid>
             </Grid>
           </Container>

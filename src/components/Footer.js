@@ -28,10 +28,10 @@ const Footer = () => (
       <div className="foot_contact">
         <span>Quick Links</span>
         <Link>
-          <p className="links">About</p>
+          <p className="links">Home</p>
         </Link>
         <Link>
-          <p className="links">Services</p>
+          <p className="links">About</p>
         </Link>
         <Link>
           <p className="links">Login</p>

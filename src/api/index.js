@@ -1,5 +1,10 @@
-import axios from 'axios'
+import axios from "axios";
 
-const url = 'http://localhost:5000/posts';
+const url = "https://bestontimedelivery.herokuapp.com/posts";
 
-const fetchOrders = () => axios.get(url);
+export const fetchOrders = () => axios.get(url);
+export const createOrder = (newOrder) => axios.post(url, newOrder);
+export const updateOrder = (id, updatedOrder) =>
+  axios.patch(`${url}/${id}`, updatedOrder);
+export const deleteOrder = (id) => axios.delete(`${url}/${id}`);
+export const likeOrder = (id) => axios.patch(`${url}/${id}/likeOrder`);
