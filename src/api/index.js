@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://bestontimedelivery.herokuapp.com/pacels";
+const url = "https://bestontimedelivery.herokuapp.com/parcels";
 
 export const fetchOrders = () => axios.get(url);
 export const createOrder = (newOrder) => axios.post(url, newOrder);
