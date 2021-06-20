@@ -1,3 +1,4 @@
+// import { CREATE, DELETE, UPDATE, LIKE, FETCH_ALL} from '../components/constants/actionTypes'
 const fn = (orders = [], action) => {
   switch (action.type) {
     case "DELETE":
@@ -18,4 +19,4 @@ const fn = (orders = [], action) => {
       return orders;
   }
 };
-export default fn;
+ export default fn;

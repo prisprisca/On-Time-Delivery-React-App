@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
-import "../style/Header.css";
+import  '../style/Header.css'
 import Form from "./Form/Form";
+// import UserAuth from "../components/UserAuth/UserAuth";
 import { getOrders } from "../actions/orders";
 import Orders from "./Orders/Orders";
 import useStyles from "../styles";
@@ -18,11 +19,11 @@ function OrderForm() {
   }, [ dispatch]);
   return (
     <>
-      <div className="header">
-        <p>On-Time-Delivery</p>
-      </div>
-
+    <div className="header">
+      <p >On Time Delivery</p>
+    </div>
       <Container maxWidth="lg">
+        {/* <UserAuth /> */}
         <AppBar className={classes.appBar} position="static" color="inherit">
           <Typography className={classes.heading} variant="h5" align="center">
             Make Your Order Now
