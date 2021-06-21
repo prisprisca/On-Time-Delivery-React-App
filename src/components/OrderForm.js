@@ -9,7 +9,11 @@ import useStyles from "../styles";
 import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 
+//  import { Button } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+
 function OrderForm() {
+  
   const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -17,10 +21,45 @@ function OrderForm() {
   useEffect(() => {
     dispatch(getOrders());
   }, [ dispatch]);
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  console.log(user);
+  useEffect(() => {
+    // const token = user?.token;
+
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, []);
   return (
     <>
     <div className="header">
       <p >On Time Delivery</p>
+       {/* {user ? (
+          <div className='profile'>
+            <Avatar
+              className='avatar'
+              alt={user.result.name}
+              src={user.result.imageUrl}
+            >
+              {user.result.name.CharAt(0)}
+                </Avatar>
+                <Typography className="name" variant="h5">
+                  {user.result.name}
+                </Typography> 
+                <Button
+                  variant="contained"
+                  className="logoutbutton"
+                  color="blue"
+                >
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <li className="header-list">
+                <Link to="/auth" className="header-link">
+                  <span>Login</span>
+                </Link>
+              </li>
+            )} */}
     </div>
       <Container maxWidth="lg">
         {/* <UserAuth /> */}
