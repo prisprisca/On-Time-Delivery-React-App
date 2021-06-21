@@ -15,6 +15,21 @@ export default makeStyles((theme) => ({
       image: {
         marginLeft: '15px',
       },
+      profile: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: '400px',
+      },
+      toolbar: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        width: '400px',
+      },
+     
+      userName: {
+        display: 'flex',
+        alignItems: 'center',
+      },
       [theme.breakpoints.down('sm')]: {
         mainContainer: {
           flexDirection:"column-reverse"
