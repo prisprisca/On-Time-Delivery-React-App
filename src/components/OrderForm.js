@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 import "../style/Header.css";
 import Form from "./Form/Form";
-// import UserAuth from "../components/UserAuth/UserAuth";
 import { getOrders } from "../actions/orders";
 import Orders from "./Orders/Orders";
 import useStyles from "../styles";
@@ -18,13 +17,14 @@ import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 
  import { Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 function OrderForm() {
   const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(getOrders());
@@ -37,11 +37,11 @@ function OrderForm() {
     setUser(null);
   };
   console.log(user);
-  // useEffect(() => {
-  //   const token = user?.token;
+  useEffect(() => {
+    // const token = user?.token;
 
-  //   setUser(JSON.parse(localStorage.getItem("profile")));
-  // }, []);
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
   return (
     <>
       <div className="header">
