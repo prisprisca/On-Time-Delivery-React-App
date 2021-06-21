@@ -13,6 +13,7 @@ import useStyles from "./styles";
 import {useDispatch} from 'react-redux'
 import Input from "./input";
 import Icon from './icon';
+import '../../style/Header.css'
 import { useHistory} from 'react-router-dom'
 
 
@@ -47,6 +48,11 @@ function Auth() {
       console.log("Google sign in unsuccessful");
   };
   return (
+    <>
+    <div className="header">
+      <p >On Time Delivery</p>
+    </div>
+
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
         <Avatar className={classes.avatar}>
@@ -103,6 +109,7 @@ function Auth() {
         </form>
       </Paper>
     </Container>
+    </>
   );
 }
 
