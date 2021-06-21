@@ -41,20 +41,20 @@ function OrderForm() {
     <>
       <div className="header">
         <p>On Time Delivery</p>
-        <Toolbar>
+        <Toolbar className = {classes.toolbar}>
           {user ? (
-            <div className="profile">
+            <div className={classes.profile}>
               <Avatar
-                className="avatar"
+                className={classes.purple}
                 alt={user.result.name}
                 src={user.result.imageUrl}
               >
                 {user.result.name.charAt(0)}
               </Avatar>
-              <Typography className="name" variant="h5">
+              <Typography className={classes.userName} variant="h5">
                 {user.result.name}
               </Typography>
-              <Button variant="contained" className="logoutbutton" color="blue">
+              <Button variant="contained" className={classes.logout}color="blue">
                 Logout
               </Button>
             </div>
