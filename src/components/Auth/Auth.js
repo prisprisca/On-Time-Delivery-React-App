@@ -39,7 +39,7 @@ function Auth() {
      try {
        dispatch({ type: 'AUTH', data: { result, token}})
 
-       history.push('/orderform')
+       history.push('/orderform');
      } catch (error) {
        console.log(error);
      }

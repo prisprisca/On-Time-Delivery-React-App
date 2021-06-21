@@ -18,25 +18,30 @@ import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 
  import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function OrderForm() {
   const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getOrders());
   }, [dispatch]);
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-//  const user = null;
+  const logout =() =>{
+    dispatch({ type: 'LOGOUT'});
+    history.push('/');
+    setUser(null);
+  };
   console.log(user);
-  useEffect(() => {
-    // const token = user?.token;
+  // useEffect(() => {
+  //   const token = user?.token;
 
-    setUser(JSON.parse(localStorage.getItem("profile")));
-  }, []);
+  //   setUser(JSON.parse(localStorage.getItem("profile")));
+  // }, []);
   return (
     <>
       <div className="header">
@@ -54,7 +59,7 @@ function OrderForm() {
               <Typography className={classes.userName} variant="h5">
                 {user.result.name}
               </Typography>
-              <Button variant="contained" className={classes.logout}color="blue">
+              <Button variant="contained" className={classes.logout}color="secondary" onClick={logout}>
                 Logout
               </Button>
             </div>
