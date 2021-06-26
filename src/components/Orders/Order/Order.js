@@ -8,12 +8,12 @@ import {
   Typography,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
-import ThumbUpIcon from '@material-ui/icons/ThumbUpAlt';
+
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
-import {useDispatch} from 'react-redux';
+import { useDispatch } from "react-redux";
 import useStyles from "./styles";
-import {deleteOrder, likeOrder} from '../../../actions/orders';
+import { deleteOrder } from "../../../actions/orders";
 
 const Order = ({ order, setCurrentId }) => {
   const classes = useStyles();
@@ -36,34 +36,41 @@ const Order = ({ order, setCurrentId }) => {
           style={{ color: "white" }}
           size="small"
           onClick={() => setCurrentId(order._id)}
-        ><MoreHorizIcon fontSize="default" /></Button>
-       
+        >
+          <MoreHorizIcon fontSize="default" />
+        </Button>
       </div>
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary">
           {order.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
-      <Typography className={classes.title} variant="h5" gutterBottom>{order.title}</Typography>
+      <Typography className={classes.title} variant="h5" gutterBottom>
+        {order.title}
+      </Typography>
       <CardContent>
-        <Typography  variant="body2" color="textSecondary" component="p" >
+        <Typography variant="body2" color="textSecondary" component="p">
           {order.message}
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-          <Button size="small" color="primary" onClick={() => dispatch(likeOrder(order._id))}>
-              <ThumbUpIcon fontSize="small" />
-              &nbsp; Like &nbsp;
-                  {order.likeCount}
-
-          </Button>
-          <Button size="small" color="primary" onClick={() => dispatch(deleteOrder(order._id))}>
-              <DeleteIcon fontSize="small" />
-                  Delete
-                  
-
-          </Button>
-
+        {/* <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(likeOrder(order._id))}
+        >
+          <ThumbUpIcon fontSize="small" />
+          &nbsp; Like &nbsp;
+          {order.likeCount}
+        </Button> */}
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(deleteOrder(order._id))}
+        >
+          <DeleteIcon fontSize="small" />
+          Delete
+        </Button>
       </CardActions>
     </Card>
   );
