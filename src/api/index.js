@@ -19,5 +19,5 @@ export const updateOrder = (id, updatedOrder) =>
   API.patch(`${"/parcels"}/${id}`, updatedOrder);
 export const deleteOrder = (id) => API.delete(`${"/parcels"}/${id}`);
 
-export const signIn = (formData) => API.post("/auth/signin", formData);
-export const signUp = (formData) => API.post("/auth/signup", formData);
+export const signIn = (formData) => API.post("/user/signin", formData);
+export const signUp = (formData) => API.post("/user/signup", formData);
