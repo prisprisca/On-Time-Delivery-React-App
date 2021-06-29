@@ -9,9 +9,6 @@ const Orders = ({ setCurrentId }) => {
   const classes = useStyles();
   console.log(orders);
 
-  // return (
-  //   <h1>order</h1>
-  // )
 
   return !orders.length ? (
     <CircularProgress />
@@ -22,8 +19,8 @@ const Orders = ({ setCurrentId }) => {
       alignItems="stretch"
       spacing={3}
     >
-      {orders.map((order) => (
-        <Grid key={order._id} item xs={12} sm={6}>
+      {orders?.map((order) => (
+        <Grid key={order._id} item xs={12} sm={6} >
           <Order order={order} setCurrentId={setCurrentId} />
         </Grid>
       ))}
