@@ -27,18 +27,16 @@ const Footer = () => (
 
       <div className="foot_contact">
         <span>Quick Links</span>
-        <Link>
+        <Link to ="/">
           <p className="links">Home</p>
         </Link>
-        <Link>
+        <Link to = "/about">
           <p className="links">About</p>
         </Link>
-        <Link>
+        <Link to = "/auth">
           <p className="links">Login</p>
         </Link>
-        <Link>
-          <p className="links">SignUp</p>
-        </Link>
+       
       </div>
 
       <div className="footer_contact">

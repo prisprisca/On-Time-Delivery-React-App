@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { createOrder, updateOrder } from "../../actions/orders";
+import { useDispatch , useSelector} from "react-redux";
+import { createOrder , updateOrder } from "../../actions/orders"; 
 import useStyles from "./styles";
 
 
@@ -29,9 +29,9 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(createOrder(orderData));
+   
     if (currentId === 0) {
-      // dispatch(createOrder(orderData));
+      
       dispatch(createOrder({ ...orderData, name: user?.result?.name }));
       // clear();
     } else {
@@ -77,7 +77,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <TextField
           name="tags"
           variant="outlined"
-          label="Current Location"
+          label="Current Location & Destination"
           fullWidth
           value={orderData.tags}
           onChange={(e) => setOrderData({ ...orderData, tags: e.target.value })}
