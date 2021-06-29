@@ -1,3 +1,4 @@
+import { CREATE} from '../components/constants/actionTypes'
 import * as api from "../api";
 
 //Action creaters. functions that return actions
@@ -13,7 +14,8 @@ export const getOrders = () => async (dispatch) => {
 export const createOrder = (order) => async (dispatch) => {
   try {
     const { data } = await api.createOrder(order);
-    dispatch({ type: "CREATE", payload: data });
+    dispatch({ type: CREATE, payload: data });
+    // history.push(`/parcels/${data._id}`)
   } catch (error) {
     console.log(error);
   }
@@ -37,11 +39,11 @@ export const deleteOrder = (id) => async (dispatch) => {
   }
 };
 
-export const likeOrder = (id) => async (dispatch) => {
-  try {
-    const { data } = await api.likeOrder(id);
-    dispatch({ type: "UPDATE", payload: data });
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const likeOrder = (id) => async (dispatch) => {
+//   try {
+//     const { data } = await api.likeOrder(id);
+//     dispatch({ type: "UPDATE", payload: data });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

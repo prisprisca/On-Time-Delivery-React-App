@@ -18,19 +18,23 @@ import { deleteOrder } from "../../../actions/orders";
 const Order = ({ order, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem('profile'));
+
+
   return (
     <Card className={classes.card}>
       <CardMedia
         className={classes.media}
-        image={order.selectFile}
+        // image={order.selectFile}
         title={order.title}
       />
       <div className={classes.overlay}>
-        <Typography variant="h6">{order.creator}</Typography>
+        <Typography variant="h6">{order.name}</Typography>
         <Typography variant="body2">
           {moment(order.createdAt).fromNow()}
         </Typography>
       </div>
+      {(user?.result.googleId === order?.creator || user?.result?._id === order?.creator ) &&(
       <div className={classes.overlay2}>
         <Button
           style={{ color: "white" }}
@@ -40,6 +44,7 @@ const Order = ({ order, setCurrentId }) => {
           <MoreHorizIcon fontSize="default" />
         </Button>
       </div>
+      )}
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary">
           {order.tags.map((tag) => `#${tag} `)}
@@ -54,16 +59,8 @@ const Order = ({ order, setCurrentId }) => {
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        {/* <Button
-          size="small"
-          color="primary"
-          onClick={() => dispatch(likeOrder(order._id))}
-        >
-          <ThumbUpIcon fontSize="small" />
-          &nbsp; Like &nbsp;
-          {order.likeCount}
-        </Button> */}
-        <Button
+        {(user?.result.googleId === order?.creator || user?.result?._id === order?.creator ) &&(
+          <Button
           size="small"
           color="primary"
           onClick={() => dispatch(deleteOrder(order._id))}
@@ -71,6 +68,8 @@ const Order = ({ order, setCurrentId }) => {
           <DeleteIcon fontSize="small" />
           Delete
         </Button>
+        )}
+        
       </CardActions>
     </Card>
   );
