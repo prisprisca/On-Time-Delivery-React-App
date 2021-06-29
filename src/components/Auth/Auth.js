@@ -15,6 +15,7 @@ import Input from "./input";
 import { signin, signup } from '../../actions/auth.js';
 import Icon from "./icon";
 import "../../style/Header.css";
+import Footer from "../Footer"
 import { useHistory } from "react-router-dom";
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
@@ -156,6 +157,7 @@ dispatch(signup(formData, history))
           </form>
         </Paper>
       </Container>
+<Footer />
     </>
   );
 }

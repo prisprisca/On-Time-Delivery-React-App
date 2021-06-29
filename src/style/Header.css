@@ -12,12 +12,13 @@
   .header > p{
     font-size: 2rem;
     color: white;
+    font-family: 'Times New Roman', Times, serif;
     margin: auto;
   }
 
   .header.active{
     background-color:  rgb(206, 190, 190);
-    /* color: white; */
+    
   }
   
   
@@ -65,6 +66,10 @@
         font-size: 12px;
         font-weight: 50px;
         padding: 6px;
+    }
+    .header > p{
+      font-size: 16px;
+      
     }
   }
   
